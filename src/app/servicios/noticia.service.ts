@@ -14,8 +14,8 @@ export class NoticiaService {
    return this.http.get<Respuesta>(`${this.urlBase}everything?q=apple&from=2020-12-02&to=2020-12-02&sortBy=popularity${this.apiKey}`);
   }
 
-  getCategory(country:string,category:string){
-    return this.http.get<Respuesta>(`${this.urlBase}top-headlines?country=${country}&category=${category}{this.apiKey}`);
+  getCategory(category:string){
+    return this.http.get<Respuesta>(`${this.urlBase}top-headlines?country=us&category=${category}${this.apiKey}`);
   }
 
 }

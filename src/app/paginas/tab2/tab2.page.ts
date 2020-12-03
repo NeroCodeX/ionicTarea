@@ -8,16 +8,21 @@ import { NoticiaService } from 'src/app/servicios/noticia.service';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-category : Article[] = [];
-categorias =['business' ,'entertainment' ,'general', 'health' ,'science' ,'sports' ,'technology'
-]
+noticias : Article[] = [];
+categorias =['business' ,'entertainment' ,'general', 'health' ,'science' ,'sports' ,'technology']
+
   constructor(private noticiasServicios: NoticiaService) {}
-  ngOnInit(){
-    this.noticiasServicios.getCategory('us','business')
+  ngOnInit():void{
+    this.cargarNoticias(this.categorias[0]);
+  }
+  cambiarCategoria(event){
+    this.noticias = [];
+    this.cargarNoticias(event.detail.value);
+  }
+  cargarNoticias(categoria:string){
+    this.noticiasServicios.getCategory(categoria)
     .subscribe((resultado)=>{
-      this.category.push(...resultado.articles)
-       console.log(resultado); 
+      this.noticias.push(...resultado.articles)
     });
   }
-
 }
