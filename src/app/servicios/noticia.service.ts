@@ -7,8 +7,6 @@ import { environment} from 'src/environments/environment';
   providedIn: 'root'
 })
 export class NoticiaService {
-  // urlBase ='http://newsapi.org/v2/';
-  // apiKey = '&apiKey=e026439bdc914f3fb465a5b4d2e1626a';
 
   constructor(private http: HttpClient) { }
   getNoticias(){
